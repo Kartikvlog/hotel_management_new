@@ -19,9 +19,8 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  </div><br>
 
-  
 <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
@@ -42,11 +41,23 @@
     <%= f.text_field :state %>
 </div>
 
+
 <div class="field">
     <%= f.label :country %><br />
     <%= f.text_field :country %>
 </div>
 <br>
+
+<div class="field"> 
+    <%= f.label :role %><br />
+    <%= f.label :role, "User", :value => "user"  %>
+    <%= f.radio_button :role, "user" %>
+    <%= f.label :role, "Admin", :value => "admin" %>
+    <%= f.radio_button :role, "admin" %>
+  </div>
+
+
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>

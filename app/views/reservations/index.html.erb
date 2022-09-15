@@ -1,0 +1,36 @@
+<h1>Reservations Page</h1>
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Status</th>
+      <th>Check_in</th>
+      <th>Check_out</th>
+      <th>User Id</th>
+      <th>Room id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.first_name %></td><br>
+        <td><%= reservation.last_name %></td>
+        <td><%= reservation.status %></td>
+        <td><%= reservation.check_in %></td>
+        <td><%= reservation.check_out %></td>
+        <td><%= reservation.user_id%></td>
+         <td><%= reservation.room_id%></td>
+        <td><%= link_to 'Show', reservation %></td>
+        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
+        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reservation', new_reservation_path %>

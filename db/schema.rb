@@ -36,24 +36,25 @@ ActiveRecord::Schema.define(version: 20220913110842) do
     t.string "last_name"
     t.datetime "check_in"
     t.datetime "check_out"
-    t.integer "customer_id"
+    t.integer "status", default: 0
+    t.integer "user_id"
     t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_reservations_on_customer_id"
     t.index ["room_id"], name: "index_reservations_on_room_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
     t.integer "room_no"
     t.string "room_type"
     t.integer "price"
-    t.integer "customer_id"
+    t.integer "user_id"
     t.integer "hotel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_rooms_on_customer_id"
     t.index ["hotel_id"], name: "index_rooms_on_hotel_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 20220913110842) do
     t.string "last_name"
     t.string "city"
     t.string "state"
-    t.integer "role"
+    t.integer "role", default: 0
     t.string "country"
     t.string "address"
     t.string "reset_password_token"

@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+  root to: 'homes#index'
+
+  resources :rooms
+
+  devise_for :users
+
+  resources :users
+
+  resources :reservations
+
+  get 'homes/show'
+
   get 'users/index'
 
   get 'users/show'
@@ -7,8 +20,6 @@ Rails.application.routes.draw do
 
   get 'users/edit'
 
-  root to:'users#home'
+  get 'users/home'
   
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
