@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20220913110842) do
     t.string "last_name"
     t.string "city"
     t.string "state"
-    t.integer "role", default: 0
+    t.boolean "admin", default: false
     t.string "country"
     t.string "address"
     t.string "reset_password_token"

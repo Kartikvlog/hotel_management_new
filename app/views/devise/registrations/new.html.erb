@@ -1,5 +1,4 @@
 <h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -47,15 +46,6 @@
     <%= f.text_field :country %>
 </div>
 <br>
-
-<div class="field"> 
-    <%= f.label :role %><br />
-    <%= f.label :role, "User", :value => "user"  %>
-    <%= f.radio_button :role, "user" %>
-    <%= f.label :role, "Admin", :value => "admin" %>
-    <%= f.radio_button :role, "admin" %>
-  </div>
-
 
 
 

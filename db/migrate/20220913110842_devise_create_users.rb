@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :last_name
       t.string :city
       t.string :state
-      t.integer :role, default: 0  
+      t.boolean :admin, default: false  
       t.string :country
       t.string :address 
       ## Recoverable

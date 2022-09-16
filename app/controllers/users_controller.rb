@@ -1,12 +1,19 @@
 class UsersController < ApplicationController
+  
+  before_action :is_admin?
+
   def home
 
   end
 
-  def index
-     @users=User.all
+  def is_admin?
+    redirect_to root_path unless current_user.admin?
   end
-  
+
+  def index
+    @users=User.all
+  end
+
   def show
 
   end
@@ -18,4 +25,5 @@ class UsersController < ApplicationController
   def edit
 
   end
+
 end

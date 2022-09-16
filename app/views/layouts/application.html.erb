@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MyApp</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>MyApp</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-
-    <%= render 'layouts/navbar' %>
-    <%= yield %>
-    <%= render 'layouts/alerts' %>
+<body>
+  <% if current_user %>
+  <%= link_to 'Sign up', new_user_registration_path %>
+  <%= render 'layouts/navbar' %>
+  <% else %>
+  <%= link_to 'Sign up', new_user_registration_path %>
+  <%= link_to 'Sign in', new_user_session_path %>
+  <% end %>
+  <%= render 'layouts/alerts' %>
+  <%= yield %>
   </body>
-</html>
+  </html>

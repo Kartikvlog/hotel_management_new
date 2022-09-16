@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'admins/index'
+
+  get 'admins/new'
+
+  get 'admins/show'
+
+  get 'admins/edit'
+
   root to: 'homes#index'
 
   resources :rooms

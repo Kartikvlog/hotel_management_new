@@ -1,42 +1,41 @@
 class RoomsController < ApplicationController
-  def index 
+
+  def index
     @rooms = Room.all
   end
 
   def show
-        @room = Room.find(params[:id])
-    end
+    @room = Room.find(params[:id])
+  end
 
-    def new 
-      @room = Room.new 
-    end
+  def new
+    @room = Room.new
+  end
 
-    def edit
-        @room = Room.find(params[:id])
-    end
+  def edit
+    @room = Room.find(params[:id])
+  end
 
-    def create
-     @room = Room.new(room_params)
+  def create
+    @room = Room.new(room_params)
     if @room.save
-      redirect_to @room
+      redirect_to @rooms_path
     else
       render 'new'
     end
+  end
 
-    end
-    
-    def update
+  def update
     @room = Room.find(params[:id])
     if @room.update(room_params)
       redirect_to @room
     else
       render 'edit'
     end
+  end
 
-    end
-
-    def destroy
-     @room = Room.find(params[:id])
+  def destroy
+    @room = Room.find(params[:id])
     @room.destroy
     redirect_to rooms_path
   end
@@ -45,4 +44,5 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:room_no, :room_type, :price, :hotel_id, :reservation_id)
   end
+  
 end

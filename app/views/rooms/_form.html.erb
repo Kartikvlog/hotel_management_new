@@ -15,20 +15,30 @@
     </div>
   <% end %>
  
- <div class="field">
-  <%= form.label :room_no %>
-    <%= form.text_field :room_no, id: :rooms_room_no %>
+ 
+
+
+<div class="field">
+  <%= form.label :room_number %><br />
+  <%= form.select :room_id, Room.all.collect { |a| [ a.id ]  } %>
+</div><br>
+
+
+<div class="field">
+    <%= form.label :room_type %>
+    <%= form.select :room_type, ['Single', 'Double', 'Delux']%>
   </div><br>
+
+  
 
   <div class="field">
-    <%= form.label :room_type %>
-    <%= form.text_field :room_type, id: :rooms_room_type %>
+    <%= form.label :price %>
+    <%= form.select :price, ['15000', '20000', '25000', '30000', '35000', '40000']%>
   </div><br>
 
- <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, id: :rooms_price %>
-  </div><br>
+
+
+ 
 
 
 <div class="field">
@@ -43,7 +53,7 @@
 
  
   <p>
-    <%= form.submit %>
+    <%= form.submit"book now" %>
   </p>
  
 <% end %>
