@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
-      redirect_to @rooms_path
+      redirect_to billings_path	
     else
       render 'new'
     end
@@ -42,7 +42,7 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:room).permit(:room_no, :room_type, :price, :hotel_id, :reservation_id)
+    params.require(:room).permit(:name, :phone, :check_in, :check_out, :number_of_nights, :hotel_id, :user_id)
   end
   
 end

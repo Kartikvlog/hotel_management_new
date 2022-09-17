@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   root to: 'homes#index'
 
+  resources :billings 
+
   resources :rooms
 
   devise_for :users

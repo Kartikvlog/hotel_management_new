@@ -25,24 +25,41 @@
     <%= form.text_field :last_name, id: :reservation_last_name %>
   </div><br>
 
+  <div class="field">
+  <%= form.label :phone_number %>
+  <%= form.text_field :phone_number, id: :reservation_phone_number %>
+</div><br>
+
+
  <div class="field">
     <%= form.label :status %>
     <%= form.select :status, ['available', 'unavailable']%>
   </div><br>
 
   <div class="field">
-    <%= form.label :check_in %>
-    <%= form.date_field  :check_in, id: :reservation_check_in %>
+  <%= form.label :room_type %>
+  <%= form.select :room_type, ['Single', 'Double', 'Delux']%>
+</div><br>
+
+  <div class="field">
+  <%= form.label :number_of_people %>
+  <%= form.select :number_of_people, [ 1, 2, 3, 4, 5 ]%>
 </div><br>
 
 <div class="field">
-    <%= form.label :check_out %>
-    <%= form.date_field  :check_out, id: :reservation_check_out %>
+<%= form.label :"Do you have special request" %>
+<%= form.text_area :description, id: :reservation_description %>
 </div><br>
+
 
 <p>
   <%= form.label :room_id %><br />
   <%= form.select :room_id, Room.all.collect { |b| [ b.id ]  } %>
+</p><br>
+
+<p>
+  <%= form.label :hotel_id %><br />
+  <%= form.select :hotel_id, Hotel.all.collect { |a| [ a.id ]  } %>
 </p><br>
 
 

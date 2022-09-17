@@ -9,18 +9,27 @@
 </p>
 
 <p>
-  <strong>Status:</strong>
+  <strong>phone number:</strong>
+  <%= @reservation.phone_number %>
+</p>
+
+<p>
+  <strong>status:</strong>
   <%= @reservation.status %>
 </p>
-
 <p>
-  <strong>Check_in:</strong>
-  <%= @reservation.check_in %>
+  <strong>room type:</strong>
+  <%= @reservation.room_type %>
 </p>
 
 <p>
-  <strong>Check_out:</strong>
-  <%= @reservation.check_out %>
+  <strong>number of people:</strong>
+  <%= @reservation.number_of_people %>
+</p>
+
+<p>
+  <strong>description:</strong>
+  <%= @reservation.description %>
 </p>
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |

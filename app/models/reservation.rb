@@ -12,6 +12,8 @@ class Reservation < ApplicationRecord
 
 	belongs_to :user
 
+	belongs_to :hotel 
+
 	enum status: { available:0, unavailable:1 }
 	
 end
