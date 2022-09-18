@@ -1,7 +1,7 @@
 class BillingsController < ApplicationController
 
   def index
-    @billings = Billing.all
+    @pagy,@billings = pagy(Billing.order(created_at: :desc),items:4)
   end
 
   def show
@@ -20,7 +20,7 @@ class BillingsController < ApplicationController
       render 'new'
     end
   end
-
+  
   def edit
     @billing = Billing.find(params[:id])
   end

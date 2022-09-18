@@ -1,5 +1,5 @@
-<%= form_with model: @reservation, local: true do |form| %>
- 
+<h1>Registration Form</h1>
+<%= form_with model: @reservation, local: true do |form| %> 
   <% if @reservation.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -15,42 +15,40 @@
   <% end %>
  <br>
 
- <div class="field">
-  <%= form.label :first_name %>
+<div class="field">
+    <%= form.label :first_name %>
     <%= form.text_field :first_name, id: :reservation_first_name %>
-  </div><br>
-
-  <div class="field">
+</div><br>
+ 
+<div class="field">
     <%= form.label :last_name %>
     <%= form.text_field :last_name, id: :reservation_last_name %>
-  </div><br>
+</div><br>
 
-  <div class="field">
+<div class="field">
   <%= form.label :phone_number %>
   <%= form.text_field :phone_number, id: :reservation_phone_number %>
 </div><br>
 
-
- <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, ['available', 'unavailable']%>
-  </div><br>
-
-  <div class="field">
-  <%= form.label :room_type %>
-  <%= form.select :room_type, ['Single', 'Double', 'Delux']%>
+<div class="field">
+  <%= form.label :status %>
+  <%= form.select :status, ['available']%>
 </div><br>
 
-  <div class="field">
+<div class="field">
+  <%= form.label :room_type %>
+  <%= form.select :room_type, ['single', 'double', 'delux']%>
+</div><br>
+
+<div class="field">
   <%= form.label :number_of_people %>
   <%= form.select :number_of_people, [ 1, 2, 3, 4, 5 ]%>
 </div><br>
 
 <div class="field">
-<%= form.label :"Do you have special request" %>
-<%= form.text_area :description, id: :reservation_description %>
+  <%= form.label :"Do you have special request" %>
+  <%= form.text_area :description, id: :reservation_description %>
 </div><br>
-
 
 <p>
   <%= form.label :room_id %><br />
@@ -62,9 +60,8 @@
   <%= form.select :hotel_id, Hotel.all.collect { |a| [ a.id ]  } %>
 </p><br>
 
-
-  <p>
-    <%= form.submit "submit" %>
-  </p>
+<p>
+  <%= form.submit "submit" %>
+</p>
 
 <% end %>

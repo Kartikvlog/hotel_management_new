@@ -20,6 +20,10 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 #bootstrap
+gem 'ransack'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'pagy'
 gem 'wdm'
 gem 'pry'
 gem 'devise'

@@ -13,4 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+// require 'pagy/extras/bootstrap'
 
+import 'bootstrap/dist/js/bootstrap'
+import 'bootstrap/dist/css/bootstrap'

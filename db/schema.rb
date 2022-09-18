@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20220913110842) do
     t.string "last_name"
     t.string "phone_number"
     t.integer "status", default: 0
-    t.string "room_type"
+    t.integer "room_type", default: 0
     t.integer "number_of_people"
     t.string "description"
     t.integer "user_id"

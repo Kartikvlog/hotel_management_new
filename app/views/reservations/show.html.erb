@@ -17,6 +17,7 @@
   <strong>status:</strong>
   <%= @reservation.status %>
 </p>
+
 <p>
   <strong>room type:</strong>
   <%= @reservation.room_type %>
@@ -34,5 +35,3 @@
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
-
-

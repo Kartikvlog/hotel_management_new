@@ -1,32 +1,43 @@
-<h1>Billing</h1>
-<p id="notice"><%= notice %></p>
-<table>
-  <thead>
-    <tr>
-      <th>Room Type</th>
-      <th>Number Of Nights</th>
-      <th>Night Rates</th>
-      <th>Total Amount</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @billings.each do |billing| %>
-      <tr>
-        <td><%= billing.room_type %></td><br>
-        <td><%= billing.number_of_nights %></td>
-        <td><%= billing.night_rate %></td>
-        <td><%= billing.total_amount %></td>
-        <td><%= link_to 'Show', billing %></td>
-        <td><%= link_to 'Edit', edit_billing_path(billing) %></td>
-        <td><%= link_to 'Destroy', billing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<ul class="nav justify-content-center">
+<li class="nav-item">
+<%= link_to 'Create Billing', new_billing_path %>
+</li>
+</ul>
 <br>
 
-<%= link_to 'New Billing', new_billing_path %>
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %><br>
+
+<table class="table">
+<thead>
+    <tr>
+      <th scope="col">Room Type</th>
+      <th scope="col">Number Of Nights</th>
+      <th scope="col">Night Rates</th>
+      <th scope="col">Total Amount</th>
+      <th colspan="5"></th>
+    </tr>
+</thead>
+<tbody>
+<% @billings.each do |billing| %>
+  <tr>
+      <td><%= billing.room_type %></td><br>
+      <td><%= billing.number_of_nights %></td>
+      <td><%= billing.night_rate %></td>
+      <td><%= billing.total_amount %></td>
+      <td><%= link_to 'Show', billing %></td>
+      <td><%= link_to 'Edit', edit_billing_path(billing) %></td>
+      <td><%= link_to 'Destroy', billing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Back', rooms_path	%></td>
+      <td><%= link_to 'PDF', billing_path(billing, format: :pdf) %></td>
+      </tr>
+      <% end %>
+</tbody>
+</table>
+<br>
+<%== pagy_bootstrap_nav(@pagy) %>
+
 
