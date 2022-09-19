@@ -1,5 +1,8 @@
 {
   "name": "my_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.1"
+  }
 }

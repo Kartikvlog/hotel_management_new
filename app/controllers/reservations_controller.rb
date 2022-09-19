@@ -1,7 +1,9 @@
 class ReservationsController < ApplicationController
 
   def index
-    @reservations = Reservation.all
+    @pagy,@reservations = pagy(Reservation.order(created_at: :desc),items:4)
+    @q = Reservation.ransack(params[:q])
+    @reservations = @q.result(distinct: true)
   end
 
   def show
@@ -42,7 +44,7 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:first_name, :last_name, :check_in, :check_out, :status, :room_id, :user_id)
-    end
-    
+    params.require(:reservation).permit(:first_name, :last_name, :phone_number, :number_of_people, :description, :status, :room_id, :user_id, :hotel_id)
   end
+
+end

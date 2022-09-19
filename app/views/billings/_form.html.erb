@@ -1,0 +1,44 @@
+<h1>Billing </h1>
+<%= form_with model: @billing, local: true do |form| %>
+  <% if @billing.errors.any? %>
+  <div id="error_explanation">
+  <h2>
+  <%= pluralize(@billing.errors.count, "error") %> prohibited this billing from being saved:
+  </h2>
+  <ul>
+  <% @billing.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+    <% end %>
+    
+    <div class="field">
+    <%= form.label :room_type %>
+    <%= form.select :room_type, [ 'Select', 'Single', 'Double', 'Delux' ] %>
+    </div><br>
+    
+    <div class="field">
+    <%= form.label :number_of_nights %>
+    <%= form.select :number_of_nights, [ 1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15 ] %>
+    </div><br>
+    
+    <div class="field">
+    <%= form.label :night_rate %>
+    <%= form.select :night_rate, [ 10000, 15000, 20000, 25000, 30000 ] %>
+    </div><br>
+    
+    <div class="field">
+    <%= form.label :total_amount %>
+    <%= form.text_field :total_amount, id: :billing_total_amount %>
+    </div><br>
+    
+    <p>
+    <%= form.label :reservation_id %><br>
+    <%= form.select :reservation_id, Reservation.all.collect { |b| [ b.id ]  } %>
+    </p>
+    
+    <p>
+    <%= form.submit"book now" %>
+    </p>
+    <% end %>

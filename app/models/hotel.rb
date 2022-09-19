@@ -11,5 +11,7 @@ class Hotel < ApplicationRecord
   validates :state, presence: true
 
   has_many :rooms
+
+  has_many :reservations
   
 end

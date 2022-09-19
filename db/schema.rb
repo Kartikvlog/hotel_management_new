@@ -13,8 +13,10 @@
 ActiveRecord::Schema.define(version: 20220913110842) do
 
   create_table "billings", force: :cascade do |t|
-    t.string "billing_no"
-    t.decimal "total_price"
+    t.string "room_type"
+    t.integer "number_of_nights"
+    t.integer "night_rate"
+    t.decimal "total_amount"
     t.integer "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,21 +36,27 @@ ActiveRecord::Schema.define(version: 20220913110842) do
   create_table "reservations", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.datetime "check_in"
-    t.datetime "check_out"
+    t.string "phone_number"
     t.integer "status", default: 0
+    t.integer "room_type", default: 0
+    t.integer "number_of_people"
+    t.string "description"
     t.integer "user_id"
     t.integer "room_id"
+    t.integer "hotel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["hotel_id"], name: "index_reservations_on_hotel_id"
     t.index ["room_id"], name: "index_reservations_on_room_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer "room_no"
-    t.string "room_type"
-    t.integer "price"
+    t.string "name"
+    t.string "phone"
+    t.datetime "check_in"
+    t.datetime "check_out"
+    t.integer "number_of_nights"
     t.integer "user_id"
     t.integer "hotel_id"
     t.datetime "created_at", null: false

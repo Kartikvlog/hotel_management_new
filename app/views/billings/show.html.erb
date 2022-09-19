@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+   <strong> room Type:</strong>
+   <%= @billing.room_type %>
+</p>
+
+<p>
+   <strong>Number Of Nights:</strong>
+   <%= @billing.number_of_nights %>
+</p>
+
+<p>
+   <strong>Night Rate:</strong>
+   <%= @billing.night_rate %>
+</p>
+
+<p>
+   <strong>Total Amount:</strong>
+   <%= @billing.total_amount %>
+</p>
+
+<%= link_to 'Edit', edit_billing_path(@billing) %> |
+<%= link_to 'Back', billings_path %>

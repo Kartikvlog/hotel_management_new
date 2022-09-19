@@ -1,59 +1,55 @@
 <h1>Booking Room </h1>
 <%= form_with model: @room, local: true do |form| %>
- 
   <% if @room.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= pluralize(@room.errors.count, "error") %> prohibited
-        this room from being saved:
-      </h2>
+    <h2>
+      <%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:
+    </h2>
       <ul>
         <% @room.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
-        <% end %>
+          <% end %>
       </ul>
     </div>
-  <% end %>
- 
- 
-
-
-<div class="field">
-  <%= form.label :room_number %><br />
-  <%= form.select :room_id, Room.all.collect { |a| [ a.id ]  } %>
-</div><br>
-
-
-<div class="field">
-    <%= form.label :room_type %>
-    <%= form.select :room_type, ['Single', 'Double', 'Delux']%>
+    <% end %>
+    
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :room_name %>
   </div><br>
-
-  
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.select :price, ['15000', '20000', '25000', '30000', '35000', '40000']%>
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :room_phone %>
   </div><br>
 
+  <div class="field">
+    <%= form.label :check_in %>
+    <%= form.date_field  :check_in, id: :room_check_in %>
+  </div><br>
+  
+  <div class="field">
+    <%= form.label :check_out %>
+    <%= form.date_field  :check_out, id: :room_check_out %>
+  </div><br>
 
+  <div class="field">
+    <%= form.label :number_of_nights %>
+    <%= form.select :number_of_nights, [ 1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15 ] %>
+  </div><br>
 
- 
-
-
-<div class="field">
-  <%= form.label :hotel_id %><br />
-  <%= form.select :hotel_id, Hotel.all.collect { |a| [ a.id ]  } %>
-</div>
-
-<p>
-  <%= form.label :reservation_id %><br />
-  <%= form.select :reservation_id, Reservation.all.collect { |b| [ b.id ]  } %>
-</p>
-
- 
+  <div class="field">
+    <%= form.label :hotel_id %><br />
+    <%= form.select :hotel_id, Hotel.all.collect { |a| [ a.id ]  } %>
+  </div>
+  
+  <p>
+    <%= form.label :reservation_id %><br />
+    <%= form.select :reservation_id, Reservation.all.collect { |b| [ b.id ]  } %>
+  </p>
+  
   <p>
     <%= form.submit"book now" %>
   </p>
- 
-<% end %>
+  
+  <% end %>
