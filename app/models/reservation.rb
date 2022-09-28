@@ -19,6 +19,6 @@ class Reservation < ApplicationRecord
 	enum status: { available:0, unavailable:1 }
 	
 	enum room_type: { single:0, double:1, delux:2 }
-	
+
 end
 

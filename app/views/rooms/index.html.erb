@@ -1,10 +1,5 @@
 <h1 >Find Rooms</h1>
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
+<%= render 'rooms/search_form' %>
 <table class="table">
   <thead>
     <tr>
@@ -19,7 +14,7 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
-        <td><%= room.name %></td><br>
+        <td><%= room.name %></td>
         <td><%= room.phone %></td>
         <td><%= room.check_in %></td>
         <td><%= room.check_out %></td>

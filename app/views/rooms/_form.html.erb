@@ -43,10 +43,7 @@
     <%= form.select :hotel_id, Hotel.all.collect { |a| [ a.id ]  } %>
   </div>
   
-  <p>
-    <%= form.label :reservation_id %><br />
-    <%= form.select :reservation_id, Reservation.all.collect { |b| [ b.id ]  } %>
-  </p>
+  
   
   <p>
     <%= form.submit"book now" %>
